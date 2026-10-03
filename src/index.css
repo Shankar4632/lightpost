@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+  body { @apply bg-concrete font-body text-[17px] leading-relaxed text-asphalt antialiased; }
+  :focus-visible { outline: 2px solid #F0A630; outline-offset: 2px; }
+  img { max-width: 100%; height: auto; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+  }
+}
+
+@layer components {
+  .container-x { @apply mx-auto w-full max-w-[1200px] px-5 sm:px-8; }
+  .btn { @apply inline-flex items-center gap-2 rounded-[3px] px-5 py-3 font-semibold transition-colors; }
+  .btn-sm { @apply inline-flex items-center gap-2 rounded-[3px] px-4 py-2 text-[15px] font-semibold transition-colors; }
+
+  /* Chain-link mesh, drawn in CSS — the site's background motif */
+  .mesh-bg {
+    background-image:
+      repeating-linear-gradient(45deg, #C9CED1 0 1.5px, transparent 1.5px 26px),
+      repeating-linear-gradient(-45deg, #C9CED1 0 1.5px, transparent 1.5px 26px);
+  }
+
+  /* Long-form text (blog, legal) */
+  .prose-site { @apply max-w-prose text-asphalt/90; }
+  .prose-site > * + * { @apply mt-4; }
+  .prose-site h2 { @apply mt-10 font-display text-3xl font-semibold leading-tight text-asphalt; }
+  .prose-site h3 { @apply mt-8 font-display text-2xl font-semibold text-asphalt; }
+  .prose-site ul { @apply list-disc space-y-2 pl-5 marker:text-sodium-dark; }
+  .prose-site a { @apply text-wire underline underline-offset-2; }
+}
